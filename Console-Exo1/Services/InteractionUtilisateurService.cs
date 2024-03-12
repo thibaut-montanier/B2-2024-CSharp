@@ -6,16 +6,19 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Console_Exo1.Services {
-    public class InteractionUtilisateurService {
-        
-        public static void AfficherMessage(string message) {
+    public class InteractionUtilisateurService : IInteractionUtilisateurService {
+        /// <summary>
+        /// Affiche un message à l'utilisateur
+        /// </summary>
+        /// <param name="message">Message à afficher</param>
+        public virtual void AfficherMessage(string message) {
             Console.WriteLine(message);
         }
 
-        public static string LireSaisieUtilisateur() {
+        public virtual string LireSaisieUtilisateur() {
             return Console.ReadLine() ?? string.Empty;
         }
-        public static int DemandeInt(string message) {
+        public virtual int DemandeInt(string message) {
             int result;
             while (true) {
                 string userInput = DemandeString(message);
@@ -28,7 +31,7 @@ namespace Console_Exo1.Services {
             return result;
         }
 
-        public static string DemandeString(string message) {
+        public virtual string DemandeString(string message) {
             string result;
             while (true) {
                 AfficherMessage(message);
